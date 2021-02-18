@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>
+        GUESS IT
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background-image: url('Landscape.png');background-position: center;background-size: cover; min-height: 100vh;color: white">
+    <center>
+        <br><br><br><br>
+        <h1>
+            LOGIN
+        </h1>
+        <hr>
+        <br>
+        <input type="text" id="p1" class="input" placeholder="Player One">
+        <br>
+        <br>
+        <input type="text" id="p2" class="input" placeholder="Player Two">
+        <br>
+        <br>
+        <br>
+        <button type="button" class="button" onclick="login()">
+                LOGIN
+            </button>
+    </center>
+    <script>
+        function login() {
+            playerone = document.getElementById("p1").value;
+            playertwo = document.getElementById("p2").value;
+            localStorage.setItem("PlayerOne", playerone);
+            localStorage.setItem("PlayerTwo", playertwo);
+            console.log("set");
+            window.location = "game.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>
+        GUESS IT
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background-image: url('Landscape.png');background-position: center;background-size: cover; min-height: 100vh;color: white">
+    <center>
+        <br><br>
+        <h1>
+            GUESS IT
+        </h1>
+        <br><br>
+        <h3 id="playerone">
+
+        </h3>
+        <label>
+            will give the question
+        </label>
+        <h3 id="playertwo">
+
+        </h3>
+        <label>
+            will answer the question
+        </label>
+
+        <br><br><br>
+        <div id="output">
+        </div>
+        <br><br>
+        <h4>NUMBER 1 :</h4>
+        <input id="one" style="width: 60%;" type="text" placeholder="Number">
+        <br><br>
+        <h4>NUMBER 2 :</h4>
+        <input id="two" style="width: 60%;" type="text" placeholder="Number">
+        <br><br><br>
+
+        <button type="button" onclick="send()">Send</button>
+
+    </center>
+    <script>
+        playerone = localStorage.getItem("PlayerOne");
+        playertwo = localStorage.getItem("PlayerTwo");
+
+        document.getElementById("playerone").innerHTML = playerone;
+
+        document.getElementById("playertwo").innerHTML = playertwo;
+
+        playerOneName = localStorage.getItem("PlayerOneName");
+        playerTwoName = localStorage.getItem("PlayerTwoName");
+
+        playerOneScore = 0;
+        playerTwoScore = 0;
+
+        function send() {
+            getNumberOne = document.getElementById("one").value;
+            getNumberTwo = document.getElementById("two").value;
+            numberOne = getNumberOne;
+            numberTwo = getNumberTwo;
+            console.log(numberOne + " and " + numberTwo);
+            answer = parseInt(numberOne) * parseInt(numberTwo);
+            console.log(answer + "is the answer");
+
+            number = numberOne + " x " + numberTwo;
+            console.log(number);
+
+            q = "<h2>Question : " + number + "</h2><br>";
+            answer = "<h2>Answer : </h2><input id='ans' type='text' placeholder='Answer'><br><br><button type='button' id='check'>Check</button>";
+            set = q + answer;
+            document.getElementById("output").innerHTML = set;
+            document.getElementById("ans").value = "";
+        }
+    </script>
+</body>
+
+</html>
